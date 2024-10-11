@@ -50,6 +50,7 @@ INSERT INTO clients (id, first_name, last_name, age, emailID, PhoneNo, City, emp
 SELECT * FROM clients;
 SELECT * FROM employeeprojects;
 
+-- joins
 SELECT e.id, e.fname, e.lname, p.id, p.name
 FROM employeedetails AS e
 INNER JOIN employeeprojects AS p
@@ -65,3 +66,22 @@ SELECT e.id, e.fname, e.lname, p.id, p.name
 FROM employeedetails AS e
 LEFT JOIN employeeprojects as p
 ON e.id = p.empid;
+
+-- subqueries
+SELECT * FROM employeedetails 
+WHERE age in
+(SELECT age FROM employeedetails WHERE age>30);
+
+SELECT * FROM employeedetails
+WHERE id in
+(SELECT empID from employeeprojects GROUP BY empID HAVING COUNT(empid)>1);
+
+SELECT * FROM employeedetails 
+WHERE age> (SELECT AVG(age) FROM employeedetails);
+
+SELECT MAX(age) FROM employeedetails
+WHERE(employeedetails.fname LIKE '%a%');
+
+-- VIEWS
+CREATE VIEW custom_view AS SELECT fname, age FROM employeedetails;
+SELECT * FROM custom_view;
