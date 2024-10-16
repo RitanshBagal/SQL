@@ -47,4 +47,21 @@ INSERT INTO TITLE (WORKER_REF_ID, WORKER_TITLE, AFFECTED_FROM) VALUES
 (8, 'Executive', '2016-06-11 00:00:00'),
 (5, 'Manager', '2016-06-11 00:00:00'),
 (4, 'Asst. Manager', '2016-06-11 00:00:00'),
-(7, 'Executive', '2016-06-11 00:00:00');alter
+(7, 'Executive', '2016-06-11 00:00:00');
+
+-- 	1.	Write an SQL query to fetch “FIRST_NAME” from Worker table using the alias name as <WORKER_NAME>.
+SELECT First_Name AS Worker_Name FROM worker;
+-- 	2.	Write an SQL query to fetch “FIRST_NAME” from Worker table in upper case.
+SELECT upper(First_Name) FROM Worker;
+-- 	3.	Write an SQL query to fetch unique values of DEPARTMENT from Worker table.
+SELECT DISTINCT Department FROM Worker;
+-- 	4.	Write an SQL query to print the first three characters of FIRST_NAME from Worker table.
+SELECT substring(first_name, 1, 3) FROM Worker;
+-- 	5.	Write an SQL query to find the position of the alphabet (‘b’) in the first name column ‘Amitabh’ from Worker table.
+SELECT INSTR(first_name, 'b') FROM Worker WHERE first_name = 'Amitabh';
+-- 	6.	Write an SQL query to print the FIRST_NAME from Worker table after removing white spaces from the right side.
+SELECT RTRIM(first_name) FROM Worker;
+-- 	7.	Write an SQL query to print the DEPARTMENT from Worker table after removing white spaces from the left side.
+SELECT LTRIM(first_name) FROM Worker;
+-- 	8.	Write an SQL query that fetches the unique values of DEPARTMENT from Worker table and prints its length.
+SELECT DISTINCT department, Length(department) FROM Worker;
